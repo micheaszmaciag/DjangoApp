@@ -23,6 +23,7 @@ admin.site.register(Genre)
 admin.site.register(Movie)
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello', hello)

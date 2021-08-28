@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.http import  HttpResponse
+from viewer.models import Movie
 # Create your views here.
 
-def hello(request):
-    s = request.GET.get('s', '')
+def movies(request):
     return render(
-        request, template_name='main.html',
+        request, template_name='movies.html',
         context={
-            'adjectives': [s, 'beautiful', 'wonderful','cool']
+            'movies': Movie.objects.all()
         }
     )
 

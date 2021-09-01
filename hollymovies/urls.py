@@ -22,9 +22,7 @@ from viewer.models import Genre, Movie
 admin.site.register(Genre)
 admin.site.register(Movie)
 
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', MoviesView.as_view(), name = 'index')
+    path('', MoviesView.as_view(), name='index')
 ]

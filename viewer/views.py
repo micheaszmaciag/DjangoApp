@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 from viewer.models import Movie
@@ -43,3 +43,10 @@ class MovieUpdateView(UpdateView):
         LOGGER.warning('User provided invalid data when updating')
         # zwracamy wynik działania pierwotnej funkcji form_invalid
         return super().form_invalid(form)
+
+class MovieDeleteView(DeleteView):
+    #Nazwa szablonu wraz z rozszerzeniem którą pobieramy z folderu templates
+    template_name = 'delete_movie.html'
+    success_url = reverse_lazy('index')
+    #nazwa encji, z której będziemy kasować rekord
+    model = Movie

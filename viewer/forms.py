@@ -11,9 +11,9 @@ import re
 class MovieForm(Form):
     title = CharField(max_length=128)  # input - max: 128
     genre = ModelChoiceField(queryset=Genre.objects)  # select -> options (pojedynczy wiersz z Genre)
-    raiting = IntegerField(min_value=1, max_value=10)  # input type: number, min= 1, max=10
+    rating = IntegerField(min_value=1, max_value=10)  # input type: number, min= 1, max=10
     released = PastMonthField()  # input type: date
-    descrption = CharField(widget=Textarea, required=False)  # nie będzie wymaganym polem
+    description = CharField(widget=Textarea, required=False)  # nie będzie wymaganym polem
 
 
     def clean_descrption(self):
@@ -33,6 +33,6 @@ class MovieForm(Form):
             self.add_error('rating', '')
             #rzucamy ogólny błąd / wyjątek
             raise ValidationError(
-                'Commedies aren\' so good to be over 7'
+                'Commedies aren\'t so good to be over 7'
             )
         return result

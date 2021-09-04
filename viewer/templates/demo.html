@@ -14,13 +14,19 @@
         <div class="{% cycle 'row' 'row2' %}">{{ i }}</div>
         {% empty %}
             <div>There is no elements in list</div>
-        {% if out_get != '' %}
-            Our Value: {{ our_get }}
-        {% else %}
-            <code>Our_get</code> is empty!
-        {% endif %}
     {% endfor %}
+    <div>
+        {% if out_get != '' %}
+                Our Value: {{ our_get }}
+            {% else %}
+                <code>Our_get</code> is empty!
+        {% endif %}
+    </div>
+    <div>
+        Our value is: {{ our_get|default:'NIC' }}
+    </div>
 
+    Today : {{ our_data | date: 'd.m.Y' }}
 
 </body>
 </html>

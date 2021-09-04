@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <!-- To jest komentarz obsługiwany przez przeglądarkę -->
+    {% comment "dodakowa notatka" %}
+        Lorem owkaoskdo as koas
+    {% endcomment  %}
+
+    {% for i in list %}
+        <div class="{% cycle 'row' 'row2' %}">{{ i }}</div>
+        {% empty %}
+            <div>There is no elements in list</div>
+        {% if out_get != '' %}
+            Our Value: {{ our_get }}
+        {% else %}
+            <code>Our_get</code> is empty!
+        {% endif %}
+    {% endfor %}
+
+
+</body>
+</html>

@@ -1,5 +1,9 @@
+import datetime
+
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.shortcuts import render # <==== zmiana
+import datetime
 
 from viewer.models import Movie
 from viewer.forms import MovieForm
@@ -7,6 +11,17 @@ from viewer.forms import MovieForm
 from logging import getLogger
 
 LOGGER = getLogger()
+
+def generate_demo(request): # <=== ZMIANA
+    our_get = request.GET.get('name', '')
+    return render(
+        request, template_name= 'demo.html',
+        context= {'our_get': our_get,
+                  'list': ['pierwszy', 'drugi', 'trzci', 'czwarty', 'piąty'],
+                  'our_data': datetime.datetime.now()
+                  }
+    )
+
 
 
 class MoviesView(ListView):

@@ -5,7 +5,6 @@
     <title>Demo</title>
 </head>
 <body>
-<<<<<<< HEAD
     <!-- TO jest komentarz -->
     {% comment "Dodatkowa notka" %}
         Lorem ipsum test 123
@@ -31,30 +30,5 @@
     </div>
 
     Dzisiaj jest: {{ nasza_data | date:'d.m.Y' }}
-=======
-    <!-- To jest komentarz obsługiwany przez przeglądarkę -->
-    {% comment "dodakowa notatka" %}
-        Lorem owkaoskdo as koas
-    {% endcomment  %}
-
-    {% for i in list %}
-        <div class="{% cycle 'row' 'row2' %}">{{ i }}</div>
-        {% empty %}
-            <div>There is no elements in list</div>
-    {% endfor %}
-    <div>
-        {% if out_get != '' %}
-                Our Value: {{ our_get }}
-            {% else %}
-                <code>Our_get</code> is empty!
-        {% endif %}
-    </div>
-    <div>
-        Our value is: {{ our_get|default:'NIC' }}
-    </div>
-
-    Today : {{ our_data | date: 'd.m.Y' }}
-
->>>>>>> origin/master
 </body>
 </html>

@@ -13,7 +13,7 @@ class Genre(Model):
 
 class Movie(Model):
     title = CharField(max_length=128)
-    genre = ForeignKey(Genre, on_delete=DO_NOTHING) # kiedy usuwamy film zostawiamy gatunek
+    genre = ForeignKey(Genre, on_delete=DO_NOTHING) # kiedy usuwam film zostawiamy gatunek
     rating = IntegerField()
     released = DateField()
     description = TextField()

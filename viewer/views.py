@@ -63,3 +63,4 @@ class MovieDeleteView(DeleteView):
     success_url = reverse_lazy('index')
     #nazwa encji, z której będzie kasować rekord
     model = Movie
+    permission_required = 'viewer.delete_movie'

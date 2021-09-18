@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from viewer.views import MoviesView, MovieCreateView, \
-    MovieUpdateView, MovieDeleteView
+    MovieUpdateView, MovieDeleteView, MovieDetailView
 from viewer.models import Genre, Movie
 
 from viewer.views import generate_demo
@@ -26,9 +26,10 @@ from accounts.views import SubmittableLoginView, SubmittablePasswordChangeForm,\
     SignUpView  # <== TUTAJ NOWE
 
 from django.contrib.auth import views
+from viewer.admin import MovieAdmin
 
 admin.site.register(Genre)
-admin.site.register(Movie)
+admin.site.register(Movie,MovieAdmin)
 
 urlpatterns = [
     path('accounts/login/', SubmittableLoginView.as_view(), name='login'),
@@ -54,6 +55,7 @@ urlpatterns = [
     path('', MoviesView.as_view(), name='index'),
     path('demo', generate_demo, name='demo'), # <==== zmiana
     path('movie/create', MovieCreateView.as_view(), name='movie_create'),
+    path('movie/details/<id>', MovieDetailView.as_view()  , name='movie_details'),
     path('movie/update/<pk>', MovieUpdateView.as_view(), name='movie_update'),
     path('movie/delete/<pk>', MovieDeleteView.as_view(), name='movie_delete'),
 

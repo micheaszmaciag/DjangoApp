@@ -1,4 +1,5 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views import View
 from django.urls import reverse_lazy
 from django.shortcuts import render
 
@@ -64,3 +65,10 @@ class MovieDeleteView(DeleteView):
     #nazwa encji, z której będzie kasować rekord
     model = Movie
     permission_required = 'viewer.delete_movie'
+
+class MovieDetailView(View):
+    def get(self,request,id):
+        return render(
+            request, 'details.html',
+            context={'movie': Movie.objects.get(id=id)}
+        )
